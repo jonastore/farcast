@@ -69,7 +69,7 @@ class FiveDayForeCast extends Component {
 				<select value={this.state.value} onChange={this.changeValue}>
 					<option>Five day forecast</option>
 					{ this.state.weather.map((dynamicData, key) => 
-						<option value={ dynamicData.main.temp  + "°C" }>
+						<option value={ dynamicData.main.temp  + "°C" + " " + dynamicData.weather[0].description}>
 							{ dynamicData.dt_txt}
 							
 						</option>)}

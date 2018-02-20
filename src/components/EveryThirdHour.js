@@ -9,7 +9,7 @@ class CurrentWeather extends Component {
 		navigator.geolocation.watchPosition((position) => {
 			//console.log(position);
 			this.setState({position: position});
-			this.TenDayForecast();
+			this.EveryThirdHour();
 		}, (error) => {
 			console.log(error);
 		});
@@ -26,11 +26,11 @@ class CurrentWeather extends Component {
 
 	//https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/15/lat/57/data.json
 
-	//TenDayForecast() {
+	//EveryThirdHour() {
 		
 
 
-		TenDayForecast(){
+		EveryThirdHour(){
 
 			const lat = this.state.position.coords.latitude;
 			const lon = this.state.position.coords.longitude;
@@ -72,10 +72,10 @@ class CurrentWeather extends Component {
 			<div className="tenDayContainer">
 				<select value={this.state.value} onChange={this.changeValue}>
 					<option>Ten day forecast</option>
-					{this.state.weather.map((dynamicData, key) => 
-						<option value={ dynamicData.parameters[1].values[0] + "°C" }>
+					{myWeather.slice(0, 24).filter((y,i) => i % 3 == 0).map((dynamicData, key) => 
+						<option>
 						{ dynamicData.validTime.replace('T', ' ').replace('Z', ' ')}
-						
+						{ dynamicData.parameters[1].values[0] + "°C" }
 						</option>)}
 					</select>
 				<h2>{ this.state.value }</h2>
