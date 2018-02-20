@@ -7,7 +7,7 @@ class CurrentWeather extends Component {
 		super();
 
 		navigator.geolocation.watchPosition((position) => {
-			console.log(position);
+			//console.log(position);
 			this.setState({position: position});
 			this.getLocalWeather();
 		}, (error) => {
@@ -30,7 +30,7 @@ class CurrentWeather extends Component {
 		fetch(url)
 			.then((response) => response.json())
 			.then((responseJson) => {
-				console.log(responseJson);
+				//console.log(responseJson);
 				this.setState({weather: responseJson});
 			})
 			.catch((error) => {
