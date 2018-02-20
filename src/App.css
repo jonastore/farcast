@@ -1,0 +1,68 @@
+.App {
+  /*text-align: center;*/
+}
+
+.App-logo {
+  /*animation: App-logo-spin infinite 20s linear;*/
+  height: 180px;
+}
+
+.App-header {
+  background-color: #0078a0; /*#007399*/
+  height: 165px;
+  padding: 20px;
+  color: white;
+  border-bottom: 4px solid #2c2f30;
+}
+
+.App-title {
+  font-size: 1.5em;
+  color: black;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+#current {
+  text-align: center;
+}
+
+.description {
+  font-style: italic;
+}
+
+ul, li {
+  list-style: none;
+  text-align: left;
+}
+
+.currentContainer {
+  float: left;
+  color: white;
+  background-color: #343839;
+  width: 30%;
+  text-align: center;
+  padding: 1%;
+  border-right: 4px solid #2c2f30;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+.tenDayContainer {
+  color: white;
+  background-color: #343839;
+  float: left;
+  width: 25%;
+  text-align: center;
+  padding: 1%;
+  border-right: 4px solid #2c2f30;
+}
+
+
+/*@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}*/
