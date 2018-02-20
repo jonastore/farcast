@@ -17,7 +17,10 @@ class CurrentWeather extends Component {
 		this.state = {
 			position: null,
 			weather: [],
+			value: null,
 		};
+
+		this.changeValue = this.changeValue.bind(this);
 	}
 
 
@@ -48,6 +51,11 @@ class CurrentWeather extends Component {
 			});
 		}
 
+		changeValue(event) {
+	    	this.setState({value: event.target.value});
+	    	console.log(this.state.value);
+  		}
+
 
 
 	render() {
@@ -62,7 +70,15 @@ class CurrentWeather extends Component {
 
 		return(
 			<div className="tenDayContainer">
-				<select><option>Ten day forecast</option>{this.state.weather.map((dynamicData, key) => <option>{ dynamicData.validTime.replace('T', ' ').replace('Z', ' ')} {dynamicData.parameters[1].values[0]}</option>)}</select>
+				<select value={this.state.value} onChange={this.changeValue}>
+					<option>Ten day forecast</option>
+					{this.state.weather.map((dynamicData, key) => 
+						<option value={ dynamicData.parameters[1].values[0] + "°C" }>
+						{ dynamicData.validTime.replace('T', ' ').replace('Z', ' ')}
+						
+						</option>)}
+					</select>
+				<h2>{ this.state.value }</h2>
 			</div>
 		);
 	}

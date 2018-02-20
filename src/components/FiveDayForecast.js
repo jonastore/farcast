@@ -17,7 +17,10 @@ class FiveDayForeCast extends Component {
 		this.state = {
 			position: null,
 			weather: [],
+			value: null,
 		};
+
+		this.changeValue = this.changeValue.bind(this);
 	}
 
 
@@ -43,12 +46,17 @@ class FiveDayForeCast extends Component {
 			});
 	}
 
+	changeValue(event) {
+    	this.setState({value: event.target.value});
+    	console.log(this.state.value);
+  	}
+
 
 
 	render() {
 
 		let myWeather = this.state.weather;
-		//console.log(myWeather);
+		console.log(myWeather);
 
 		if (myWeather) {
 			//weatherTemp = myWeather.list[0]
@@ -58,7 +66,15 @@ class FiveDayForeCast extends Component {
 
 		return(
 			<div className="fiveDayContainer">
-				<select><option>Five day forecast</option>{ this.state.weather.map((dynamicData, key) => <option>{ dynamicData.dt_txt} { dynamicData.main.temp}</option>)}</select>
+				<select value={this.state.value} onChange={this.changeValue}>
+					<option>Five day forecast</option>
+					{ this.state.weather.map((dynamicData, key) => 
+						<option value={ dynamicData.main.temp  + "°C" }>
+							{ dynamicData.dt_txt}
+							
+						</option>)}
+				</select>
+				<h2>{ this.state.value }</h2>
 			</div>
 		);
 	}
