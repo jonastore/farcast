@@ -74,11 +74,7 @@ class CurrentWeather extends Component {
 		var weatherHumidity = "No humidity data";
 		var testweatherSunset = "";
 		var testweatherSunrise = "";
-		//basically, if myPosition has a value
-		//if (myPosition) {
-			//location = `lat: ${myPosition.coords.latitude} lon: ${myPosition.coords.longitude}`;
-			//location = myPosition.name;
-		//}
+
 
 		if (myWeather) {
 			location = myWeather.name;
@@ -123,6 +119,7 @@ class CurrentWeather extends Component {
 			</div>
 		);
 	}
+
 }
 
 export default CurrentWeather;
