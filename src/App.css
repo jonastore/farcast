@@ -45,6 +45,7 @@ ul, li {
   text-align: center;
   padding: 1%;
   border-right: 4px solid #2c2f30;
+  height: 100vh;
 }
 
 h1 {
@@ -59,7 +60,6 @@ h1 {
   color: white;
   background-color: #343839;
   float: left;
-  border-right: 4px solid #2c2f30;
 
 }
 
@@ -69,6 +69,8 @@ select {
   border: none;
   width: 300px;
   height: 50px;
+  border-right: solid 2px #2c2f30;
+  border-bottom: solid 2px #2c2f30;
 }
 
 option {
@@ -91,10 +93,17 @@ a {
 .threeHourTemp {
   font-weight: bold;
   font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
+.time {
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
 
-
+.pThreeHours{
+  margin: 5%;
+}
 
 /*@keyframes App-logo-spin {
   from { transform: rotate(0deg); }

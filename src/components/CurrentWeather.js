@@ -58,7 +58,8 @@ class CurrentWeather extends Component {
 		var weatherSunset = "No sunset today";
 		var weatherTemp = "No temperature data"; 
 		var weatherHumidity = "No humidity data";
-
+		var testweatherSunset = "";
+		var testweatherSunrise = "";
 		//basically, if myPosition has a value
 		//if (myPosition) {
 			//location = `lat: ${myPosition.coords.latitude} lon: ${myPosition.coords.longitude}`;
@@ -72,15 +73,24 @@ class CurrentWeather extends Component {
 			weatherMain = myWeather.weather[0].main;
 			weatherDescription = myWeather.weather[0].description;
 			weatherWind = myWeather.wind.speed;
-			//weatherSunrise = myWeather.sys.sunrise; //convert this .toLocaleTimeString()
-			//weatherSunset = new Date(myWeather.sys.sunset).toString();
+			//testweatherSunrise = new Date(myWeather.sys.sunrise).toString();; //convert this .toLocaleTimeString()
+			//testweatherSunset = new Date(myWeather.sys.sunset).toString();
 			weatherIcon = "http://openweathermap.org/img/w/" + myWeather.weather[0].icon + ".png";
 			weatherHumidity = myWeather.main.humidity;
 
-			var date = new Date(parseInt(myWeather.sys.sunrise));
+			console.log(myWeather.sys.sunrise)
+			console.log(myWeather.sys.sunset)
+
+
+			/*var x = new Date(myWeather.sys.sunrise * 1000);
+			var weatherSunrise = x.toString();
+
+			var y = new Date(myWeather.sys.sunset * 1000);
+			var weatherSunset = y.toString();*/
+			var date = new Date(parseInt(myWeather.sys.sunrise)*1000);
 			var weatherSunrise = date.toLocaleTimeString();
 
-			var date = new Date(parseInt(myWeather.sys.sunset));
+			var date = new Date(parseInt(myWeather.sys.sunset)*1000);
 			var weatherSunset = date.toLocaleTimeString();
 
 
@@ -93,14 +103,14 @@ class CurrentWeather extends Component {
 			<div className="currentContainer">
 				<ul>
 					<li><h5>{ location }, { country }</h5></li>
-					<li><h1>{ weatherTemp }°C</h1></li>
+					<li><h1>🌡️{ weatherTemp }°C</h1></li>
 					<li><img src={ weatherIcon } alt="Weather icon"></img></li>
 					<li><h3>{ weatherMain }</h3></li>
 					<li><p className="description">{ weatherDescription }</p></li>
-					<li><p className="wind">Wind speed: { weatherWind } m/s</p></li>
+					<li><p className="wind">🌬️ { weatherWind } m/s</p></li>
 					<li><p>Humidity: { weatherHumidity }%</p></li>
-					<li><p>The sun will rise at: { weatherSunrise }</p></li>
-					<li><p>The sun will set at: { weatherSunset }</p></li>
+					<li><p>☀️🔺 { weatherSunrise }</p></li>
+					<li><p>☀️🔻 { weatherSunset }</p></li>
 				</ul>
 			</div>
 		);

@@ -17,7 +17,7 @@ class FiveDayForeCast extends Component {
 		this.state = {
 			position: null,
 			weather: [],
-			value: null,
+			value: "Select date and time above",
 		};
 
 		this.changeValue = this.changeValue.bind(this);
@@ -31,9 +31,7 @@ class FiveDayForeCast extends Component {
 		const lon = this.state.position.coords.longitude;
 		const apiKey = "3d1ef0c1419586e726f5115624af30ed";
 
-		//api.openweathermap.org/data/2.5/forecast?lat=35&lon=139
 		const url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=metric&APPID=" + apiKey;
-		//const url2 = "http://api.openweathermap.org/data/2.5/forecast?lat=59.31838299999999&lon=18.034421299999998&APPID=3d1ef0c1419586e726f5115624af30ed";
 
 		fetch(url)
 			.then((response) => response.json())
@@ -69,7 +67,7 @@ class FiveDayForeCast extends Component {
 				<select value={this.state.value} onChange={this.changeValue}>
 					<option>Five day forecast</option>
 					{ this.state.weather.map((data, key) => 
-						<option value={ data.main.temp  + "°C" + " " + data.weather[0].description + " " + data.wind.speed + " m/s"}>
+						<option value={"🌡️" + data.main.temp  + "°C" + " " + data.weather[0].description + " 🌬️ " + data.wind.speed + " m/s"}>
 							{ data.dt_txt }
 						</option>)}
 				</select>
