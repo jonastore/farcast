@@ -16,16 +16,21 @@ class CurrentWeather extends Component {
 
 		this.state = {
 			position: null,
-			weather: null
+			weather: null,
+			unit: "metric",
 		};
+
+		this.toggleFa = this.toggleFa.bind(this);
+		this.toggleMe = this.toggleMe.bind(this);
 	}
 
 	getLocalWeather() {
 		const lat = this.state.position.coords.latitude;
 		const lon = this.state.position.coords.longitude;
 		const apiKey = "3d1ef0c1419586e726f5115624af30ed";
+		const unit = "metric";
 		
-		const url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&APPID=" + apiKey;
+		const url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=" + this.state.unit +  "&APPID=" + apiKey;
 
 		fetch(url)
 			.then((response) => response.json())
@@ -42,6 +47,15 @@ class CurrentWeather extends Component {
 	//"&lon=" + position.coords.longitude;
 	//"&APPID=3d1ef0c1419586e726f5115624af30ed
 
+	toggleFa(){
+    	this.setState({unit: "imperial"}, () => this.getLocalWeather());
+    	console.log(this.state.unit);
+	}
+
+	toggleMe() {
+		this.setState({unit: "metric"}, () => this.getLocalWeather());
+		console.log(this.state.unit);
+	}
 
 	render() {
 
@@ -78,29 +92,23 @@ class CurrentWeather extends Component {
 			weatherIcon = "http://openweathermap.org/img/w/" + myWeather.weather[0].icon + ".png";
 			weatherHumidity = myWeather.main.humidity;
 
-			console.log(myWeather.sys.sunrise)
-			console.log(myWeather.sys.sunset)
-
-
-			/*var x = new Date(myWeather.sys.sunrise * 1000);
-			var weatherSunrise = x.toString();
-
-			var y = new Date(myWeather.sys.sunset * 1000);
-			var weatherSunset = y.toString();*/
 			var date = new Date(parseInt(myWeather.sys.sunrise)*1000);
 			var weatherSunrise = date.toLocaleTimeString();
 
 			var date = new Date(parseInt(myWeather.sys.sunset)*1000);
 			var weatherSunset = date.toLocaleTimeString();
 
-
-
-
 		}
 
 
 		return(
 			<div className="currentContainer">
+				<button value="imperial" onClick={this.toggleFa}>
+ 					Farenheit
+				</button>
+				<button value="metric" onClick={this.toggleMe}>
+ 					Metric
+				</button>
 				<ul>
 					<li><h5>{ location }, { country }</h5></li>
 					<li><h1>🌡️{ weatherTemp }°C</h1></li>
