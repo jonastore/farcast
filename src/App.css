@@ -105,18 +105,21 @@ a {
   margin: 5%;
 }
 
+.radar {
+  float: left;
+}
 
 .radarImage {
     position: absolute;
-  left: 814px;
-  top: 320px;
+  /*left: 814px;
+  top: 320px;*/
   width: 310px;
   z-index: 3;
 }
 .mapImage {
     position: absolute;
-  left: 814px;
-  top: 320px;
+  /*left: 814px;
+  top: 320px;*/
   width: 290px;
   z-index: 1;
 }

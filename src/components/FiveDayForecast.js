@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Radar from './Radar.js'
 
 class FiveDayForeCast extends Component {
 
@@ -73,6 +74,7 @@ class FiveDayForeCast extends Component {
 						</option>)}
 				</select>
 				<h2>{ this.state.value }</h2>
+				<Radar />
 			</div>
 		);
 	}
