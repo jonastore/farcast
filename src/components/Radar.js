@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Radar.css';
+import '../App.css';
 import map from '../map.png'
 //import prop-types?
 
