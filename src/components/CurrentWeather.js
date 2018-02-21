@@ -18,6 +18,7 @@ class CurrentWeather extends Component {
 			position: null,
 			weather: null,
 			unit: "metric",
+			wind: "m/s",
 		};
 
 		this.toggleFa = this.toggleFa.bind(this);
@@ -49,11 +50,13 @@ class CurrentWeather extends Component {
 
 	toggleFa(){
     	this.setState({unit: "imperial"}, () => this.getLocalWeather());
+    	this.setState({wind: "mph"});
     	console.log(this.state.unit);
 	}
 
 	toggleMe() {
 		this.setState({unit: "metric"}, () => this.getLocalWeather());
+		this.setState({wind: "m/s"});
 		console.log(this.state.unit);
 	}
 
@@ -111,7 +114,7 @@ class CurrentWeather extends Component {
 					<li><img src={ weatherIcon } alt="Weather icon"></img></li>
 					<li><h3>{ weatherMain }</h3></li>
 					<li><p className="description">{ weatherDescription }</p></li>
-					<li><p className="wind">🌬️ { weatherWind } m/s</p></li>
+					<li><p className="wind">🌬️ { weatherWind } { this.state.wind }</p></li>
 					<li><p>Humidity: { weatherHumidity }%</p></li>
 					<li><p>☀️🔺 { weatherSunrise }</p></li>
 					<li><p>☀️🔻 { weatherSunset }</p></li>
