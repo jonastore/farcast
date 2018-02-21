@@ -105,6 +105,22 @@ a {
   margin: 5%;
 }
 
+
+.radarImage {
+    position: absolute;
+  left: 814px;
+  top: 320px;
+  width: 310px;
+  z-index: 3;
+}
+.mapImage {
+    position: absolute;
+  left: 814px;
+  top: 320px;
+  width: 290px;
+  z-index: 1;
+}
+
 /*@keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

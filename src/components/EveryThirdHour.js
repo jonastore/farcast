@@ -71,7 +71,7 @@ class CurrentWeather extends Component {
 			<div className="threeHourContainer">
 				<h4>Upcoming 24 hours</h4>
 					<div>
-						{myWeather.slice(0, 25).filter((data,i) => i % 3 === 0).map((data, key) => <p class="pThreeHours"><span class="threeHourTemp">🌡️{ data.parameters[1].values[0] + "°C" }</span><br></br><span class="time">{ data.validTime.replace('T', ' ').replace('Z', ' ')}</span></p>)}
+						{myWeather.slice(0, 25).filter((data,i) => i % 3 === 0).map((data, key) => <p className="pThreeHours"><span className="threeHourTemp">🌡️{ data.parameters[1].values[0] + "°C" }</span><br></br><span class="time">{ data.validTime.replace('T', ' ').replace('Z', ' ')}</span></p>)}
 					</div>
 				<span>source: </span><a href="http://opendata.smhi.se/apidocs/metfcst/index.html">smhi</a>
 			</div>

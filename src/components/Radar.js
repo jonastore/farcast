@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import map from '../map.png'
 //import prop-types?
 
 
@@ -13,14 +14,14 @@ class Radar extends Component {
 			this.setState({position: position});
 			this.Radar();
 		}, (error) => {
-			console.log(error);
+			//console.log(error);
 		});
 
 		this.state = {
 			position: null,
 			weather: [],
 			value: null,	//remove these
-			radar: null,
+			radar: [],
 		};
 
 	}
@@ -36,11 +37,11 @@ class Radar extends Component {
 		fetch(url)
 			.then((response) => response.json())
 			.then((responseJson) => {
-				console.log(responseJson);
-				this.setState({radar: responseJson});
+				//console.log(responseJson);
+				this.setState({radar: responseJson.files});
 			})
 			.catch((error) => {
-				console.log(error);
+				//console.log(error);
 		});
 	}
 
@@ -48,13 +49,14 @@ class Radar extends Component {
 
 	render() {
 
-
-
+		let myRadar = this.state.radar;
+		console.log(myRadar);
 
 
 		return(
 			<div className="radar">
-
+				{ myRadar.slice(0, 1).map((data, key) => <img className="radarImage" src={ data.formats[0].link }></img>)}
+				<img className="mapImage" src={ map }></img>
 			</div>
 		);
 	}
