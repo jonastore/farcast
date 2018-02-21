@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
+//import prop-types?
+
 
 class CurrentWeather extends Component {
 
@@ -24,10 +26,7 @@ class CurrentWeather extends Component {
 	}
 
 
-	//https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/15/lat/57/data.json
-
-	//EveryThirdHour() {
-		
+	//https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/15/lat/57/data.json		
 
 
 		EveryThirdHour(){
@@ -69,16 +68,10 @@ class CurrentWeather extends Component {
 				//{this.state.weather.map((dynamicData, key) => <div>{ dynamicData.validTime}</div>)}
 
 		return(
-			<div className="tenDayContainer">
-				<select value={this.state.value} onChange={this.changeValue}>
-					<option>Ten day forecast</option>
-					{myWeather.slice(0, 24).filter((y,i) => i % 3 == 0).map((dynamicData, key) => 
-						<option>
-						{ dynamicData.validTime.replace('T', ' ').replace('Z', ' ')}
-						{ dynamicData.parameters[1].values[0] + "°C" }
-						</option>)}
-					</select>
-				<h2>{ this.state.value }</h2>
+			<div className="threeHourContainer">
+				<h4>Every third hour the next 24 hours</h4>
+					{myWeather.slice(0, 25).filter((data,i) => i % 3 === 0).map((data, key) => <p>{ data.validTime.replace('T', ' ').replace('Z', ' ')}<span class="threeHourTemp">{ data.parameters[1].values[0] + "°C" }</span></p>)}
+				<span>source: </span><a href="http://opendata.smhi.se/apidocs/metfcst/index.html">smhi</a>
 			</div>
 		);
 	}

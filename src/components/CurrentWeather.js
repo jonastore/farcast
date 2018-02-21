@@ -72,10 +72,20 @@ class CurrentWeather extends Component {
 			weatherMain = myWeather.weather[0].main;
 			weatherDescription = myWeather.weather[0].description;
 			weatherWind = myWeather.wind.speed;
-			weatherSunrise = myWeather.sys.sunrise; //convert this .toLocaleTimeString()
-			weatherSunset = myWeather.sys.sunset;
+			//weatherSunrise = myWeather.sys.sunrise; //convert this .toLocaleTimeString()
+			//weatherSunset = new Date(myWeather.sys.sunset).toString();
 			weatherIcon = "http://openweathermap.org/img/w/" + myWeather.weather[0].icon + ".png";
 			weatherHumidity = myWeather.main.humidity;
+
+			var date = new Date(parseInt(myWeather.sys.sunrise));
+			var weatherSunrise = date.toLocaleTimeString();
+
+			var date = new Date(parseInt(myWeather.sys.sunset));
+			var weatherSunset = date.toLocaleTimeString();
+
+
+
+
 		}
 
 

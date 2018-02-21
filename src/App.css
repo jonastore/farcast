@@ -51,14 +51,6 @@ h1 {
   font-size: 4em;
 }
 
-.tenDayContainer {
-  color: white;
-  background-color: #343839;
-  float: left;
-  width: 25%;
-  border-right: 4px solid #2c2f30;
-}
-
 .currentList > li {
   margin: 5%;
 }
@@ -83,6 +75,23 @@ option {
   border: 1px solid white;
 }
 
+a {
+  color: white;
+}
+
+.threeHourContainer {
+  color: white;
+  background-color: #343839;
+  float: left;
+  width: 25%;
+  border-right: 4px solid #2c2f30;
+  padding: 3.4%;
+}
+
+.threeHourTemp {
+  font-weight: bold;
+  font-size: 1.2em;
+}
 
 
 

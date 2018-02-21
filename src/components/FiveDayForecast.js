@@ -6,9 +6,9 @@ class FiveDayForeCast extends Component {
 	constructor(props) {
 		super(props);
 
-		navigator.geolocation.watchPosition((position) => {
+		navigator.geolocation.watchPosition((data) => {
 			//console.log(position);
-			this.setState({position: position});
+			this.setState({position: data});
 			this.getFiveDayForeCast();
 		}, (error) => {
 			console.log(error);
@@ -68,10 +68,9 @@ class FiveDayForeCast extends Component {
 			<div className="fiveDayContainer">
 				<select value={this.state.value} onChange={this.changeValue}>
 					<option>Five day forecast</option>
-					{ this.state.weather.map((dynamicData, key) => 
-						<option value={ dynamicData.main.temp  + "°C" + " " + dynamicData.weather[0].description}>
-							{ dynamicData.dt_txt}
-							
+					{ this.state.weather.map((data, key) => 
+						<option value={ data.main.temp  + "°C" + " " + data.weather[0].description + " " + data.wind.speed + " m/s"}>
+							{ data.dt_txt }
 						</option>)}
 				</select>
 				<h2>{ this.state.value }</h2>
