@@ -12,14 +12,14 @@ class Radar extends Component {
 		navigator.geolocation.watchPosition((position) => {
 			//console.log(position);
 			this.setState({position: position});
-			this.Radar();
+			this.Radar(); //fix this and remove navigator from radar.js
 		}, (error) => {
 			//console.log(error);
 		});
 
 		var date = new Date();
 		var day = date.getDate();
-		var month = date.getMonth()+1; //January is 0!
+		var month = date.getMonth()+1; //since january is index 0
 		var year = date.getFullYear();
 
 		this.state = {
@@ -34,12 +34,9 @@ class Radar extends Component {
 
 	}
 
-
-		//AIzaSyB8jXwQl4LEqPIJnCzoCqLY1p4Gahkfltg
-		//https://opendata-download-radar.smhi.se/api/version/latest/area/sweden/product/comp/2018/02/21
-
 	Radar(){
 		let url = "https://opendata-download-radar.smhi.se/api/version/latest/area/sweden/product/comp/" + this.state.year + "/" + this.state.month + "/" + this.state.day ;
+		//let url2 ="https://opendata-download-radar.smhi.se/api/version/latest/area/sweden/product/comp/2008/02/21";
 
 		fetch(url)
 			.then((response) => response.json())
@@ -86,6 +83,11 @@ class Radar extends Component {
 						<option>2016</option>
 						<option>2015</option>
 						<option>2014</option>
+						<option>2013</option>
+						<option>2012</option>
+						<option>2011</option>
+						<option>2010</option>
+						<option>2009</option>
 					</select>
 					<select value={this.state.value} onChange={this.changeMonth}>
 						<option value="1">January</option>
@@ -135,8 +137,10 @@ class Radar extends Component {
 						<option>31</option>
 					</select>
 				</div>
+				<div className="radarContainer">
 					{ myRadar.slice(0, 1).map((data, key) => <img className="radarImage" src={ data.formats[0].link }></img>)}
 					<img className="mapImage" src={ map }></img>
+				</div>
 			</div>
 		);
 	}

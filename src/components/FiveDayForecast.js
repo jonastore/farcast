@@ -66,7 +66,7 @@ class FiveDayForeCast extends Component {
 
 		return(
 			<div className="fiveDayContainer">
-				<select value={this.state.value} onChange={this.changeValue}>
+				<select className="fiveDaySelect" value={this.state.value} onChange={this.changeValue}>
 					<option>Five day forecast</option>
 					{ this.state.weather.map((data, key) => 
 						<option value={"🌡️" + data.main.temp  + "°C" + " " + data.weather[0].description + " 🌬️ " + data.wind.speed + " m/s"}>

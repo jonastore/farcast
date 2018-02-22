@@ -3,9 +3,19 @@
 }
 
 .App-logo {
-  /*animation: App-logo-spin infinite 20s linear;*/
   height: 180px;
 }
+
+.App-logo:hover {
+  animation: App-logo-spin infinite .2s linear;
+  height: 180px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 
 .App-header {
   background-color: #0078a0; /*#007399*/
@@ -46,6 +56,7 @@ ul, li {
   padding: 1%;
   border-right: 4px solid #2c2f30;
   height: 100vh;
+  padding-top:0;
 }
 
 h1 {
@@ -60,7 +71,14 @@ h1 {
   color: white;
   background-color: #343839;
   float: left;
+  text-align: center;
+  border-left: 4px solid #2c2f30;
+}
 
+.fiveDaySelect {
+  width: 200px;
+  height: 45px;
+  border-top: none;
 }
 
 select {
@@ -69,8 +87,11 @@ select {
   border: none;
   width: 120px;
   height: 50px;
-  border-right: solid 2px #2c2f30;
-  border-bottom: solid 2px #2c2f30;
+  border: solid 2px #2c2f30;
+}
+
+select:focus {
+  outline:0;
 }
 
 option {
@@ -86,8 +107,31 @@ a {
   background-color: #343839;
   float: left;
   width: 25%;
-  border-right: 4px solid #2c2f30;
   padding: 3.4%;
+  padding-top: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.threeHourTrigger {
+  border: 2px solid #2c2f30;
+  border-top: none;
+  text-align: center;
+  padding: 4%;
+  margin-top: 0;
+}
+
+.threeHourContent {
+   display: none;
+    position: absolute;
+    background-color: #343839;
+    width: 255px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+}
+
+.threeHourContainer:hover .threeHourContent {
+    display: block;
 }
 
 .threeHourTemp {
@@ -97,7 +141,6 @@ a {
 }
 
 .time {
-  border-bottom: 1px solid white;
   padding-bottom: 10px;
 }
 
@@ -105,7 +148,16 @@ a {
   margin: 5%;
 }
 
+.pThreeHours:hover{
+  background: #2c2f30;
+}
+
+
 .radar {
+  float: left;
+}
+
+.radarContainer {
   float: left;
 }
 
@@ -113,18 +165,36 @@ a {
     position: absolute;
   /*left: 814px;
   top: 320px;*/
-  width: 310px;
-  z-index: 3;
+  width: 160px;
+  z-index: 100;
 }
 .mapImage {
     position: absolute;
   /*left: 814px;
   top: 320px;*/
-  width: 290px;
+  width: 150px;
   z-index: 1;
 }
 
-/*@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}*/
+.btnLeft {
+      color: white;
+      background-color: #343839;
+      border: 2px solid #2c2f30;
+      border-top: none;
+      padding: 3%;
+}
+
+.btnRight {
+      color: white;
+      background-color: #343839;
+      border: 2px solid #2c2f30;
+      border-left: none;
+      border-top: none;
+      padding: 3%;
+      margin-top: 0;
+}
+
+button:focus {
+  outline:0;
+}
+

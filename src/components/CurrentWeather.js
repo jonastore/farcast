@@ -75,9 +75,8 @@ class CurrentWeather extends Component {
 		var weatherSunset = "No sunset today";
 		var weatherTemp = "No temperature data"; 
 		var weatherHumidity = "No humidity data";
-		var testweatherSunset = "";
+		var testweatherSunset = "No sunset today";
 		var testweatherSunrise = "";
-
 
 		if (myWeather) {
 			location = myWeather.name;
@@ -86,8 +85,6 @@ class CurrentWeather extends Component {
 			weatherMain = myWeather.weather[0].main;
 			weatherDescription = myWeather.weather[0].description;
 			weatherWind = myWeather.wind.speed;
-			//testweatherSunrise = new Date(myWeather.sys.sunrise).toString();; //convert this .toLocaleTimeString()
-			//testweatherSunset = new Date(myWeather.sys.sunset).toString();
 			weatherIcon = "http://openweathermap.org/img/w/" + myWeather.weather[0].icon + ".png";
 			weatherHumidity = myWeather.main.humidity;
 
@@ -102,11 +99,11 @@ class CurrentWeather extends Component {
 
 		return(
 			<div className="currentContainer">
-				<button value="imperial" onClick={this.toggleFa}>
- 					Farenheit
+				<button class="btnLeft" value="imperial" onClick={this.toggleFa}>
+ 					Farenheit/Imperial
 				</button>
-				<button value="metric" onClick={this.toggleMe}>
- 					Metric
+				<button class="btnRight" value="metric" onClick={this.toggleMe}>
+ 					Celsius/Metric
 				</button>
 				<ul>
 					<li><h5>{ location }, { country }</h5></li>
