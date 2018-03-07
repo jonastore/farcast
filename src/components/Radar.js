@@ -77,7 +77,7 @@ class Radar extends Component {
 				
 				<div>
 					<h2>Get historical weather data</h2>
-					<select value={this.state.value} onChange={this.changeYear}>
+					<select className="yearSelect" value={this.state.value} onChange={this.changeYear}>
 						<option>2018</option>
 						<option>2017</option>
 						<option>2016</option>

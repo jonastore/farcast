@@ -61,17 +61,13 @@ class CurrentWeather extends Component {
 
 		let myWeather = this.state.weather;	
 
-		if (myWeather) {
-			//weatherTemp = myWeather.list[0]
-		}
-		
 				//{this.state.weather.map((dynamicData, key) => <div>{ dynamicData.validTime}</div>)}
 
 		return(
 			<div className="threeHourContainer">
 				<h4 className="threeHourTrigger">Hover for 24 hour forecast</h4>
 					<div className="threeHourContent">
-						{myWeather.slice(0, 24).filter((data,i) => i % 3 === 0).map((data, key) => <p className="pThreeHours"><span className="threeHourTemp">🌡️{ data.parameters[1].values[0] + "°C" }</span><br></br><span class="time">{ data.validTime.replace('T', ' ').replace('Z', ' ')}</span></p>)}
+						{myWeather.slice(0, 25).filter((data,i) => i % 3 === 0).map((data, key) => <p className="pThreeHours"><span className="threeHourTemp">🌡️{ data.parameters[1].values[0] + "°C" }</span><br></br><span class="time">{ data.validTime.replace('T', ' ').replace('Z', ' ')}</span></p>)}
 					</div>
 				<span>source: </span><a href="http://opendata.smhi.se/apidocs/metfcst/index.html">smhi</a>
 			</div>
